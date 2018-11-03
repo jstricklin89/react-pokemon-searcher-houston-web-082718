@@ -5,9 +5,15 @@ import { Card } from 'semantic-ui-react'
 class PokemonCollection extends React.Component {
   render() {
     return (
+      <div>
+      <button onClick={this.props.sortPokemon}><i className="user plus icon" />Sort by weight</button>
+      <h1>Pokemon Collection</h1> 
       <Card.Group itemsPerRow={6}>
-        <h1>Hello From Pokemon Collection</h1>
+        {this.props.pokemon.map(pokemon => {
+          return <PokemonCard key={pokemon.id} pokemon={pokemon}/>
+        })}
       </Card.Group>
+      </div>
     )
   }
 }
